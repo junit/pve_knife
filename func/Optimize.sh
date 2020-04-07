@@ -30,12 +30,6 @@ EOF
 }
 
 AddReserveProxy() {
-# Add For Proxmox Update
-#if [ `grep -c "89.31.125.19 download.proxmox.com" /etc/hosts` != '0' ]; then
-#	echo 'Done'
-#else
-#    echo "89.31.125.19 download.proxmox.com" >> /etc/hosts
-#fi
 }
 
 AddConfirmForDangerCommand() {
