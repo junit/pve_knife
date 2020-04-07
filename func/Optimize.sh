@@ -29,9 +29,6 @@ deb-src https://mirrors.ustc.edu.cn/debian-security/ buster/updates main contrib
 EOF
 }
 
-AddReserveProxy() {
-}
-
 AddConfirmForDangerCommand() {
 # Confirm For rm
 if [ `grep -cx "alias rm='rm -i'" ~/.bashrc` != '0' ]; then
@@ -68,14 +65,6 @@ BoostNow() {
     echo '#####PVE Boost Script#####'
     echo "Let's do some choice"
 while :; do echo
-                read -e -p "Do you want to add Proxmox Update Accelerator? [y/n]: " ChoiceAccelerator
-                if [[ ! ${ChoiceAccelerator} =~ ^[y,n]$ ]]; then
-                  echo "${CWARNING}input error! Please only input 'y' or 'n'"
-                else
-                  break
-                fi
-              done
-while :; do echo
                 read -e -p "After replace files,Upgrade your system? [y/n]: " ChoiceUpdate
                 if [[ ! ${ChoiceUpdate} =~ ^[y,n]$ ]]; then
                   echo "${CWARNING}input error! Please only input 'y' or 'n'"
@@ -92,9 +81,6 @@ while :; do echo
     InstallBasicComponent
     AddConfirmForDangerCommand
     SSHLoginAccelerate
-if [ "${ChoiceAcceleratorn}" == 'y' ]; then
-    AddReserveProxy
-fi
 if [ "${ChoiceUpdate}" == 'y' ]; then
     UpgradeSoftware
 fi
